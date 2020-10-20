@@ -11,11 +11,11 @@ Since we have a simple queries, the star schema has been choosen. This schema is
 Five Tables have been designed, one Fact Table and four Dimension Tables.
 
 #### Staging Tables
-1.**staging_events**
+##### 1.**staging_events**
 +columns:ste_artist, ste_auth, ste_fname, ste_gender, ste_itemsInSessions, ste_lname, ste_length, ste_level,    
          ste_location, ste_method, ste_page,ste_registration, ste_session_id, ste_song, ste_status,ste_ts,  
          ste_userAgent, ste_user_id
-2.**staging_songs**
+##### 2.**staging_songs**
 +column:num_songs, artist_id, artist_latitude, artist_longitude, artist_location, artist_name, song_id, title,
         duration, year
 #### Fact Table
@@ -23,13 +23,13 @@ Five Tables have been designed, one Fact Table and four Dimension Tables.
 +columns:songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent
 
 #### Dimension Tables
-1.**users** - users in the app
+##### 1.**users** - users in the app
 +columns: user_id, first_name, last_name, gender, level
-2.**songs** - songs in music database
+##### 2.**songs** - songs in music database
 +columns:song_id, title, artist_id, year, duration
-3.**artists** - artists in music database
+##### 3.**artists** - artists in music database
 +columns:artist_id, name, location, latitude, longitude
-4.**time** - timestamps of records in songplays broken down into specific units
+##### 4.**time** - timestamps of records in songplays broken down into specific units
 +columns: start_time, hour, day, week, month, year, weekday
 
 ### ETL Pipeline
@@ -38,9 +38,9 @@ Pyton has been used to read the songs and logs data from JSON fil, to transforme
 ## Implementation
 
 ### Input Data
-LOG_DATA='s3://udacity-dend/log_data'
-LOG_JSONPATH='s3://udacity-dend/log_json_path.json'
-SONG_DATA='s3://udacity-dend/song_data'
+#### LOG_DATA='s3://udacity-dend/log_data'
+#### LOG_JSONPATH='s3://udacity-dend/log_json_path.json'
+#### SONG_DATA='s3://udacity-dend/song_data'
 
 ### File: sql_queries.py
 This file contains the queries for creating tables, inserting data into the tables, dropping the tables and searching data in the tables. So the changes on the tables should occur in this file.
@@ -57,6 +57,6 @@ This file contains AWS datawarehouse configurations parameters.
 ## Run the application
 Before running the files in items (1) and (2) make sure that the redshift (cluster) database is available.
 The parameters to set the aws resources and clients are in the file dwl.cfg available
-1.offen a Terminal
-2.Run the file *create_tables.py* : in the Terminal write *python create_tables.py*
-3.Run the file *etl.py* : in the Terminal write *python etl.py*
+### 1.offen a Terminal
+### 2.Run the file *create_tables.py* : in the Terminal write *python create_tables.py*
+### 3.Run the file *etl.py* : in the Terminal write *python etl.py*
